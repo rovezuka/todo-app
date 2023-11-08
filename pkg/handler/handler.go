@@ -1,9 +1,17 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/rovezuka/todo-app/pkg/service"
+)
 
 // Handler представляет собой обработчик HTTP-запросов и маршрутов приложения.
 type Handler struct {
+	services *service.Service
+}
+
+func NewHandler(services *service.Service) *Handler {
+	return &Handler{services: services}
 }
 
 // InitRoutes инициализирует маршруты приложения и возвращает движок Gin для обработки HTTP-запросов.
